@@ -1,10 +1,10 @@
 (function () {
 
-  window.Question = Backbone.Model.extend({
+  MyApp.Models.Question = Backbone.Model.extend({
   });
 
-  window.Questions = Backbone.Collection.extend({
-    model: Question,
+  MyApp.Collections.Questions = Backbone.Collection.extend({
+    model: MyApp.Models.Question,
     counter: 0
   });
 

@@ -1,11 +1,28 @@
+(function() {
+
   var questionBank = [
-    {question: 'Question 1', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 2', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 3', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 4', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 5', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 6', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-    {question: 'Question 7', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'}
-  ]
+    {question: 'Question 1', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 1'},
+    {question: 'Question 2', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 2'},
+    {question: 'Question 3', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 4'},
+    {question: 'Question 4', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 2'},
+    {question: 'Question 5', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 3'},
+    {question: 'Question 6', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 3'},
+    {question: 'Question 7', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 1'},
+    {question: 'Question 8', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 3'},
+    {question: 'Question 9', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 2'},
+    {question: 'Question 10', answers: ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4',], correct: 'Answer 4'}
+  ];
 
 
+  MyApp.Database = function () {
+    this.getQuestions = function () {
+      // Grab q from questionBank
+      return questionBank
+    };
+
+    this.selectQuestion = function (id) {
+      // Select stuff
+    };
+  };
+
+})();

@@ -1,35 +1,59 @@
 (function () {
-  var quiz = new Questions();
 
-  var quizView = new QuizView({
-    collection: quiz,
-    el: $('#game')
-  });
+  MyApp.db = new MyApp.Database();
 
-  // var questionBank = [
-  //   {question: 'Question 1', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 2', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 3', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 4', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 5', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 6', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-  //   {question: 'Question 7', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'}
-  // ]
+  // var quiz = new Questions();
 
-  $('.start-game').click(function(e) {
-    e.preventDefault();
-    $('#start-game').hide();
-    quiz.add(
-      questionBank[0]
-      // [
-      // {question: 'Question 1', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 2', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 3', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 4', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 5', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 6', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'},
-      // {question: 'Question 7', answer1: 'Answer 1', answer2: 'Answer 2', answer3: 'Answer 3', answer4: 'Answer4'}
-    // ]
-    );
-  });
+
+  var view = new MyApp.Views.StartGame();
+
+
+  MyApp.createQuiz = function() {
+    var selectedQuestions = [];
+    // Command
+    // Grab data from db
+    var questions = MyApp.db.getQuestions();
+    selectQuestions(questions, selectedQuestions);
+    shuffleAnswers(selectedQuestions)
+    createQuestionModels(selectedQuestions)
+
+    return {
+      success: true,
+      selectedQuestions: selectedQuestions
+    };
+  };
+
+  function shuffle(array) {
+    for(var j, x, i = array.length; i; j = Math.floor(Math.random() * i), x = array[--i], array[i] = array[j], array[j] = x);
+    return array;
+  }
+
+  function selectQuestions(array1, array2) {
+    shuffle(array1)
+    for (var i = 0; i < 7; i++) {
+      array2.push(array1[i]);
+    }
+  }
+
+  function shuffleAnswers(array) {
+    for (var i = 0; i < array.length; i++) {
+      shuffle(array[i].answers);
+    }
+  }
+
+  function createQuestionModels(array) {
+    for (var i = 0; i < array.length; i++) {
+      // console.log(array[i]);
+      var newQuestionModel = {
+        question: array[i].question,
+        answer1: array[i].answers[0],
+        answer2: array[i].answers[1],
+        answer3: array[i].answers[2],
+        answer4: array[i].answers[3],
+        correct: array[i].correct
+      };
+      array[i]= newQuestionModel;
+    }
+  }
+
 })();
