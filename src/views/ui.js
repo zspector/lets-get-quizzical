@@ -7,7 +7,6 @@
     el: '#start-game',
 
     start: function (e) {
-      // var category = $(e.currentTarget).data('category');
       var category = e.currentTarget.getAttribute('data-category')
 
       e.preventDefault();
