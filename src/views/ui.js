@@ -18,6 +18,7 @@
         var quizView = new MyApp.Views.QuizView({
           questions: result.selectedQuestions
         });
+        $('#game').append(quizView.el);
       } else {
         console.log('error!');
       }

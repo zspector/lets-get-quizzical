@@ -10,6 +10,7 @@
     <button class="start-game" data-category="two">Start Game</button>
   </div>
 
+  <div id="timer"></div>
   <div id="game"></div>
 
   <div id="result"></div>
@@ -17,8 +18,16 @@
   <div class="high-scores"></div>
 
   <div id="templates">
+
+    <script class="timer" type="text/template">
+      <div class="timer-container">
+        <p> {{ timer }} </p>
+      </div>
+    </script>
+
     <script class="question" type="text/template">
       <div class="question-container">
+
         <p class="question-content">{{ question }}</p>
         <button class="answer" id="{{ answer1 }}">{{ answer1 }}</button>
         <button class="answer" id="{{ answer2 }}">{{ answer2 }}</button>
@@ -50,6 +59,7 @@
 
   <!-- Views -->
   <script src="src/views/ui.js" type="text/javascript"></script>
+  <script src="src/views/timer-view.js" type="text/javascript"></script>
   <script src="src/views/question-view.js" type="text/javascript"></script>
   <script src="src/views/quiz-view.js" type="text/javascript"></script>
   <script src="src/views/result-view.js" type="text/javascript"></script>

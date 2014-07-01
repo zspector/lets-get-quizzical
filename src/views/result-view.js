@@ -6,7 +6,7 @@
     },
 
     render: function() {
-      var newHtml = _.template($('.result').html(), this.score);
+      var newHtml = _.template($('.result').html(), {score: this.score});
       // $(this.el).html( newHtml );
       this.$el = $('<div class="result-view"></div>')
       $('#result').append(this.$el);
