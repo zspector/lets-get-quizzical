@@ -20,25 +20,23 @@
 
       this.questionView.render();
       this.$el.append(this.questionView.el);
-      userEvents.on('next', this.outtaTime, this);
-    },
-
-    outtaTime: function() {
-      this.timerView.reset();
-      this.nextQuestion();
+      this.listenTo(userEvents, 'next', this.evaluateAnswer);
     },
 
     evaluateAnswer: function(e) {
-      console.log(this.questions);
-      var guess = $(e.currentTarget).attr('id');
-      if (guess === this.questions[this.counter].correct) {
-        console.log('Correct!');
-        this.score++
+      if (e) {
+        console.log(this.questions);
+        var guess = $(e.currentTarget).attr('id');
+        if (guess === this.questions[this.counter].correct) {
+          console.log('Correct!');
+          this.score += this.timerView.timer * 100
+        } else {
+          console.log('Incorrect!');
+        }
       } else {
-        console.log('Incorrect!');
+        console.log('Incorrect because time ran out');
       }
-      // this.nextQuestion();
-      this.timerView.reset();
+      this.timerView.timerReset();
       this.nextQuestion();
     },
 
@@ -60,22 +58,21 @@
       } else {
         // after 7 questions it resets
         this.counter = 0;
-        this.timerView.remove();
+        this.timerView.destroyCountdown();
+        // this.timerView.remove();
         $('#game').empty();
         var resultView = new MyApp.Views.ResultView({
           finalScore: this.score,
           el: '#result'
         })
+        this.stopListening();
         resultView.render();
-        // this.killEvents();
-        // debugger;
+        this.undelegateEvents();
+        this.unbind();
         this.remove();
+        Backbone.View.prototype.remove.call(this);
       }
     },
-
-    killEvents: function(e) {
-      e.stopImmediatePropagation();
-    }
 
     // render: function() {
     //   this.$el = $('<div class="quiz-view"></div>');
