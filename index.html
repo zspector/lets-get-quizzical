@@ -12,6 +12,7 @@
 
   <div id="timer"></div>
   <div id="game"></div>
+  <div id="score"></div>
 
   <div id="result"></div>
 
@@ -27,7 +28,6 @@
 
     <script class="question" type="text/template">
       <div class="question-container">
-
         <p class="question-content">{{ question }}</p>
         <button class="answer" id="{{ answer1 }}">{{ answer1 }}</button>
         <button class="answer" id="{{ answer2 }}">{{ answer2 }}</button>
@@ -36,11 +36,19 @@
       </div>
     </script>
 
-    <script class="result" type="text/tempate">
+    <script class="score" type="text/template">
+      <div class="score-container">
+        <p class="current-score">Score: {{ score }}</p>
+      </div>
+    </script>
+
+    <script class="result" type="text/template">
       <div class="result-container">
         <p class="result-content"> Your score is: {{ score }}</p>
         <button class="continue">Continue</button>
+      </div>
     </script>
+
   </div>
 
   <!-- 3rd-party scripts -->
@@ -63,6 +71,7 @@
   <script src="src/views/question-view.js" type="text/javascript"></script>
   <script src="src/views/quiz-view.js" type="text/javascript"></script>
   <script src="src/views/result-view.js" type="text/javascript"></script>
+  <script src="src/views/score-view.js" type="text/javascript"></script>
 
   <!-- Main Entry -->
   <script src="src/main.js" type="text/javascript"></script>

@@ -8,18 +8,21 @@
     initialize: function(options) {
       this.questions = options.questions;
       this.counter = 0;
-      this.score = 0;
-      // Initialize a bunch of question views
+      // this.score = 0;
+      // Initialize view components of game
       this.timerView = new MyApp.Views.TimerView();
       this.questionView = new MyApp.Views.QuestionView({ question: this.questions[0] });
-      // console.log("new view:", this.questionView);
-      // this.render();
+      this.scoreView = new MyApp.Views.ScoreView();
+      // Render timer and begin countdown
       this.timerView.render();
       this.timerView.countdown();
       this.$el.append(this.timerView.el);
-
+      // Render first question
       this.questionView.render();
       this.$el.append(this.questionView.el);
+      // Render score view
+      // this.scoreView.render();
+      this.$el.append(this.scoreView.el);
       this.listenTo(userEvents, 'next', this.evaluateAnswer);
     },
 
@@ -29,7 +32,8 @@
         var guess = $(e.currentTarget).attr('id');
         if (guess === this.questions[this.counter].correct) {
           console.log('Correct!');
-          this.score += this.timerView.timer * 100
+          this.scoreView.score += this.timerView.timer * 100;
+
         } else {
           console.log('Incorrect!');
         }
@@ -54,6 +58,7 @@
         console.log(this.counter);
         // add next question, which will trigger questionView.render()
         this.questionView.question = this.questions[this.counter]
+        this.scoreView.render();
         this.questionView.render();
       } else {
         // after 7 questions it resets
@@ -62,9 +67,10 @@
         // this.timerView.remove();
         $('#game').empty();
         var resultView = new MyApp.Views.ResultView({
-          finalScore: this.score,
+          finalScore: this.scoreView.score,
           el: '#result'
-        })
+        });
+        $('#score').empty();
         this.stopListening();
         resultView.render();
         this.undelegateEvents();
