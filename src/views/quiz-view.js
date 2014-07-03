@@ -33,7 +33,7 @@
         if (guess === this.questions[this.counter].correct) {
           console.log('Correct!');
           this.scoreView.score += this.timerView.timer * 100;
-
+          this.scoreView.render();
         } else {
           console.log('Incorrect!');
         }
@@ -58,7 +58,7 @@
         console.log(this.counter);
         // add next question, which will trigger questionView.render()
         this.questionView.question = this.questions[this.counter]
-        this.scoreView.render();
+        // this.scoreView.render();
         this.questionView.render();
       } else {
         // after 7 questions it resets
