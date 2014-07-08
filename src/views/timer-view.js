@@ -3,7 +3,7 @@
     className: 'timer-view',
     initialize: function() {
       this.timer = 11;
-      this.render();
+      // this.render();
       _.bindAll(this, 'countdown', 'timerReset', 'destroyCountdown', 'render');
       // this.countdown(this);
       console.log(this);
@@ -20,14 +20,19 @@
           self.countdown();
         }, 1000);
       } else if (this.timer === -1) {
+        this.timerPause();
         this.timerReset();
         userEvents.trigger('next')
       };
       // console.log(this);
     },
 
-    timerReset: function () {
+    timerPause: function() {
       clearTimeout(this.countdownTimeout);
+    },
+
+    timerReset: function () {
+      // clearTimeout(this.countdownTimeout);
       this.timer = 11;
       this.render();
       this.countdown();

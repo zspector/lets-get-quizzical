@@ -10,13 +10,13 @@
       this.counter = 0;
       // this.score = 0;
       // Initialize view components of game
-      this.timerView = new MyApp.Views.TimerView();
+      // this.timerView = new MyApp.Views.TimerView();
       this.questionView = new MyApp.Views.QuestionView({ question: this.questions[0] });
       this.scoreView = new MyApp.Views.ScoreView();
       // Render timer and begin countdown
-      this.timerView.render();
-      this.timerView.countdown();
-      this.$el.append(this.timerView.el);
+      window.MyApp.Instances.timer.render();
+      window.MyApp.Instances.timer.countdown();
+      this.$el.append(window.MyApp.Instances.timer.el);
       // Render first question
       this.questionView.render();
       this.$el.append(this.questionView.el);
@@ -32,16 +32,25 @@
         var guess = $(e.currentTarget).attr('id');
         if (guess === this.questions[this.counter].correct) {
           console.log('Correct!');
-          this.scoreView.score += this.timerView.timer * 100;
+          $('body').css('background-color','green')
+          this.scoreView.score += window.MyApp.Instances.timer.timer * 100;
           this.scoreView.render();
         } else {
           console.log('Incorrect!');
+          $('body').css('background-color','red');
         }
       } else {
         console.log('Incorrect because time ran out');
       }
-      this.timerView.timerReset();
-      this.nextQuestion();
+      window.MyApp.Instances.timer.timerPause();
+      this.disableClick();
+      var that = this
+      setTimeout(function(){
+        $('body').css('background-color', 'white')
+        that.enableClick();
+        window.MyApp.Instances.timer.timerReset();
+        that.nextQuestion();
+      }, 2000);
     },
 
     // timerReset: function() {
@@ -63,7 +72,7 @@
       } else {
         // after 7 questions it resets
         this.counter = 0;
-        this.timerView.destroyCountdown();
+        window.MyApp.Instances.timer.destroyCountdown();
         // this.timerView.remove();
         $('#game').empty();
         MyApp.Instances.resultView.scopedScore(this.scoreView.score);
@@ -79,6 +88,16 @@
         Backbone.View.prototype.remove.call(this);
       }
     },
+
+    disableClick: function() {
+      this.events["click .answer"] = undefined;
+      this.delegateEvents(this.events);
+    },
+
+    enableClick: function() {
+      this.events["click .answer"] = "evaluateAnswer";
+      this.delegateEvents(this.events);
+    }
 
     // render: function() {
     //   this.$el = $('<div class="quiz-view"></div>');

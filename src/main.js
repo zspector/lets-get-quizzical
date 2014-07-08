@@ -39,6 +39,8 @@
     el: '#result'
   })
 
+  MyApp.Instances.timer = new MyApp.Views.TimerView();
+
   var scores = MyApp.Instances.scores;
   var view   = MyApp.Instances.view;
 
