@@ -12,16 +12,16 @@
     countdown: function() {
       this.timer -= 1;
       this.render();
-      if (this.timer > -1) {
+      if (this.timer > 0) {
         var self = this;
         this.countdownTimeout = setTimeout(function(){
           // this.timer -= 1;
           // this.render();
           self.countdown();
         }, 1000);
-      } else if (this.timer === -1) {
+      } else if (this.timer === 0) {
         this.timerPause();
-        this.timerReset();
+        // this.timerReset();
         userEvents.trigger('next')
       };
       // console.log(this);
@@ -40,10 +40,11 @@
 
     destroyCountdown: function() {
       clearTimeout(this.countdownTimeout);
-      this.undelegateEvents();
-      this.unbind();
-      this.remove();
-      Backbone.View.prototype.remove.call(this);
+      this.timer = 11;
+      // this.undelegateEvents();
+      // this.unbind();
+      // this.remove();
+      // Backbone.View.prototype.remove.call(this);
     },
 
     render: function() {

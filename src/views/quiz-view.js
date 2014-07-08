@@ -30,27 +30,32 @@
       if (e) {
         console.log(this.questions);
         var guess = $(e.currentTarget).attr('id');
+        var target = $(e.currentTarget)
         if (guess === this.questions[this.counter].correct) {
           console.log('Correct!');
-          $('body').css('background-color','green')
+          // $('body').css('background-color','green')
+          target.toggleClass('btn-success');
           this.scoreView.score += window.MyApp.Instances.timer.timer * 100;
           this.scoreView.render();
         } else {
           console.log('Incorrect!');
-          $('body').css('background-color','red');
+          // $('body').css('background-color','red');
+          target.toggleClass('btn-danger');
         }
       } else {
         console.log('Incorrect because time ran out');
+        target = $('.answer');
+        target.toggleClass('btn-danger')
       }
       window.MyApp.Instances.timer.timerPause();
       this.disableClick();
       var that = this
       setTimeout(function(){
-        $('body').css('background-color', 'white')
+        target.toggleClass();
         that.enableClick();
-        window.MyApp.Instances.timer.timerReset();
         that.nextQuestion();
-      }, 2000);
+        // window.MyApp.Instances.timer.timerReset();
+      }, 500);
     },
 
     // timerReset: function() {
@@ -69,6 +74,7 @@
         this.questionView.question = this.questions[this.counter]
         // this.scoreView.render();
         this.questionView.render();
+        window.MyApp.Instances.timer.timerReset();
       } else {
         // after 7 questions it resets
         this.counter = 0;

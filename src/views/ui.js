@@ -24,7 +24,8 @@
       console.log(category);
 
       e.preventDefault();
-      $('#start-game').hide();
+      $('.start-game-row').hide();
+      $('.toggle-hide').show();
 
       var result = MyApp.createQuiz(category.toLowerCase());
       if (result.success) {
@@ -65,6 +66,7 @@
         }
         console.log("i can show you the scores");
         $('#high-scores').show();
+        $('.start-game-row').hide();
       }
       // get users and scores
       MyApp.db.getScores(callback);

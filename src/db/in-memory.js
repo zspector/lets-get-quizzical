@@ -31,7 +31,7 @@
     {question: 'What musician has the nickname, Satchmo?', answers: ['Louis Armstrong', 'Kurt Cobain', 'Keith Richards', 'Little Richard',], correct: 'Louis Armstrong'},
     {question: 'Which of the following did John Williams NOT score?', answers: ['Superman', 'Raiders of the Lost Ark', 'Jaws', 'Back to the Future',], correct: 'Back to the Future'},
     {question: "What rock 'n' roll singer is memorialized by an eight-foot bronze statue in Lubbock, Texas?", answers: ['Buddy Holly', 'Johnny Cash', 'Willie Nelson', 'Janis Joplin',], correct: 'Buddy Holly'},
-    {question: 'Which Beatles single lastes the longest on the charts?', answers: ['Hey Jude', "A Hard Day's Night", 'Let It Be', 'Yesterday',], correct: 'Hey Jude'},
+    {question: 'Which Beatles single lasted the longest on the charts?', answers: ['Hey Jude', "A Hard Day's Night", 'Let It Be', 'Yesterday',], correct: 'Hey Jude'},
     {question: 'Who was the first country artist to sell over 10 million copies of an album', answers: ['Garth Brooks', 'Keith Urban', 'Toby Keith', 'Carrie Underwood',], correct: 'Garth Brooks'},
     {question: "What is Snoop Dogg's real name?", answers: ['Sean Carter', 'Calvin Broadus', 'Andre Young', 'Jeffrey Atkins',], correct: 'Calvin Broadus'},
     {question: 'Who was NOT a member of the Beastie Boys?', answers: ['Mike D', 'Ad-Rock', 'MCA', 'Jam Master Jay',], correct: 'Jam Master Jay'},

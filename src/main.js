@@ -51,6 +51,8 @@
 
   $('.close-scores').click(function() {
     $('#high-scores').hide();
+    // $('.toggle-hide').hide();
+    $('.start-game-row').show();
   })
 
 

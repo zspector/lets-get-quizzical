@@ -25,7 +25,8 @@
 
     restart: function() {
       $('#result').hide();
-      $('#start-game').show();
+      $('.toggle-hide').hide();
+      $('.start-game-row').show();
       this.scopedScore(0);
       // this.undelegateEvents();
       // $(this.el).off('click');

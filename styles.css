@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Axis';
+  src: url('src/assets/fonts/aqua.eot');
+  src: url('src/assets/fonts/aqua.ttf') format('truetype'),
+       url('src/assets/fonts/aqua.woff') format('woff');
+  /* src: url('aqua.ttf');*/
+}
+
+html {
+  height: 100%;
+  background-repeat: no-repeat;
+  background: -webkit-linear-gradient(#006599, #007eb9); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#006599, #007eb9); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#006599, #007eb9); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#006599, #007eb9); /* Standard syntax */
+}
+
+body {
+  background-color: transparent;
+  font-family: Axis;
+}
+
+#high-scores {
+  border: 10px solid #FFD700;
+  color: #FFD700;
+  box-shadow: 1px 1px 10px black;
+}
+
+.high-scores {
+  height: 6rem;
+  width: 20rem;
+  font-size: 2rem;
+}
+
+.close-scores {
+  background-color: #FFD700;
+  color: #006599;
+}
+
+.start-game-row, .timer-row, .game-row, .score-row, .result-row {
+  background-color: #FFD700;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.start-game-row, .result-row {
+  /*background-color: #FFD700;*/
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  /*margin: 0 auto;*/
+  /*width: 100%;*/
+}
+
+.category-button {
+  height: 15rem;
+  width: 15rem;
+  font-size: 3rem;
+}
+
+.start-game-row {
+  margin-top: 10rem;
+}
+
+.toggle-hide {
+  display: none;
+}
+
+/*#start-game {
+  background-color: #ffd700;
+  margin-top: 6rem;
+  margin-bottom: 7rem;
+}*/
+
+h1 {
+  font-size: 8rem;
+}
+
+.title {
+  font-style: italic;
+  color:#FFD700;
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate;
+}
+
+.question-content {
+  width: 100%;
+  height: 6.5rem;
+}
+
+.answer {
+  width: 80%;
+}
+
+.result-button-div {
+  margin-top: 2rem;
+}
+
+/*#high-scores {
+  position: absolute;
+  top: 50px;
+  z-index: 1000;
+  border: solid black 3px;
+}*/
