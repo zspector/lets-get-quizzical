@@ -3,7 +3,8 @@
   window.MyApp = {
     Views: {},
     Models: {},
-    Collections: {}
+    Collections: {},
+    Instances: {}
   };
 
 })();

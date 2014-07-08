@@ -1,18 +1,63 @@
 (function () {
 
+  // initialize database
   MyApp.db = new MyApp.Database();
 
-  // var quiz = new Questions();
+  // Create category buttons
+  MyApp.createCategoryButtons = function() {
+    var categories = MyApp.db.getCategories();
+    for (var i = 0; i < categories.length; i++) {
+      // console.log(categories[i]);
+      var newCatView = new MyApp.Views.Category({
+        category: categories[i],
+      });
+      newCatView.render();
+    }
+  }
+
+  MyApp.createCategoryButtons();
+
+  // Create array to put highScoreViews in, available to re-render later
+  MyApp.userScoreViews = []
+  // Create 10 views to re-use with highscores
+  MyApp.createUserScoreViews = function() {
+    for (var i = 0; i < 10; i++) {
+      MyApp.Views['userScoreView' + (i + 1)] = new MyApp.Views.UserScoreView();
+      MyApp.userScoreViews.push(MyApp.Views['userScoreView' + (i + 1)]);
+    }
+  };
+
+  // create user score views
+  MyApp.createUserScoreViews();
+
+  // create the highScore view
+  MyApp.Instances.scores = new MyApp.Views.HighScores();
+
+  MyApp.Instances.view = new MyApp.Views.StartGame();
+
+  MyApp.Instances.resultView = new MyApp.Views.ResultView({
+    el: '#result'
+  })
+
+  var scores = MyApp.Instances.scores;
+  var view   = MyApp.Instances.view;
+
+  $('.high-scores').click(function(){
+    userEvents.trigger('showScores');
+    // $('#high-scores').show();
+  });
+
+  $('.close-scores').click(function() {
+    $('#high-scores').hide();
+  })
 
 
-  var view = new MyApp.Views.StartGame();
-
-
-  MyApp.createQuiz = function() {
+  MyApp.createQuiz = function(category) {
     var selectedQuestions = [];
     // Command
     // Grab data from db
-    var questions = MyApp.db.getQuestions();
+    var questions = MyApp.db.getQuestions(category);
+    console.log('questions:', questions);
     selectQuestions(questions, selectedQuestions);
     shuffleAnswers(selectedQuestions)
     createQuestionModels(selectedQuestions)

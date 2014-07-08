@@ -66,13 +66,13 @@
         this.timerView.destroyCountdown();
         // this.timerView.remove();
         $('#game').empty();
-        var resultView = new MyApp.Views.ResultView({
-          finalScore: this.scoreView.score,
-          el: '#result'
-        });
-        $('#score').empty();
+        MyApp.Instances.resultView.scopedScore(this.scoreView.score);
+        MyApp.Instances.resultView.render(this.scoreView.score);
+        $('#result').show();
+        this.scoreView.remove();
+        // $('#score').empty();
         this.stopListening();
-        resultView.render();
+        // resultView.render();
         this.undelegateEvents();
         this.unbind();
         this.remove();

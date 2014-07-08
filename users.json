@@ -1,0 +1,44 @@
+{
+  "users" : {
+    "CPU1" : {
+      "user" : "CPU1",
+      "score": 10000
+    },
+    "CPU2" : {
+      "user" : "CPU2",
+      "score": 9000
+    },
+    "CPU3" : {
+      "user" : "CPU3",
+      "score": 8000
+    },
+    "CPU4" : {
+      "user" : "CPU4",
+      "score": 7000
+    },
+    "CPU5" : {
+      "user" : "CPU5",
+      "score": 6000
+    },
+    "CPU6" : {
+      "user" : "CPU6",
+      "score": 5000
+    },
+    "CPU7" : {
+      "user" : "CPU7",
+      "score": 4000
+    },
+    "CPU8" : {
+      "user" : "CPU8",
+      "score": 3000
+    },
+    "CPU9" : {
+      "user" : "CPU9",
+      "score": 2000
+    },
+    "CPU10" : {
+      "user" : "CPU10",
+      "score": 1000
+    }
+  }
+}
