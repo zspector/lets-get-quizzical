@@ -46,19 +46,16 @@
 
   $('.high-scores').click(function(){
     userEvents.trigger('showScores');
-    // $('#high-scores').show();
   });
 
   $('.close-scores').click(function() {
     $('#high-scores').hide();
-    // $('.toggle-hide').hide();
     $('.start-game-row, .high-scores').show();
   })
 
 
   MyApp.createQuiz = function(category) {
     var selectedQuestions = [];
-    // Command
     // Grab data from db
     var questions = MyApp.db.getQuestions(category);
     console.log('questions:', questions);

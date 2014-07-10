@@ -41,7 +41,15 @@ body {
   color: #006599;
 }
 
-.start-game-row, .timer-row, .game-row, .score-row, .result-row {
+.timer-row {
+  color: #FFD700;
+}
+
+.result-row {
+  display: none;
+}
+
+.start-game-row, .game-row, .score-row, .result-row {
   background-color: #FFD700;
   margin: 0 auto;
   width: 100%;

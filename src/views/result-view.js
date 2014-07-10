@@ -24,9 +24,8 @@
     },
 
     restart: function() {
-      $('#result').hide();
-      $('.toggle-hide').hide();
-      $('.start-game-row').show();
+      $('.result-row, .toggle-hide').hide();
+      $('.start-game-row, .high-scores').show();
       this.scopedScore(0);
       // this.undelegateEvents();
       // $(this.el).off('click');
@@ -64,26 +63,11 @@
       }
 
       if (name.length >= 3) {
-        // var highScores = MyApp.db.getScores();
         MyApp.db.getUser(name, callback1);
-        // if (MyApp.db.getUser(name) === 'failure') {
-        //   // user does not exist so add him and final score to db
-        //   MyApp.db.addUser(name, score);
-        // } else {
-        //   // user exists so add final score to total score
-        //   var userObject = MyApp.db.getUser(name);
-        //   userObject.score += this.score;
-        //   var updatedUser = MyApp.db.updateUser(userObject.user, userObject.score);
-        //   console.log(updatedUser);
-        // }
-        // // console.log(MyApp.db.getScores());
       } else {
         // alert
         alert('Name must be at least 3 characters');
       }
-      // this.restart();
-      // userEvents.trigger('showScores');
-      // $('#high-scores').show();
     }
   })
 

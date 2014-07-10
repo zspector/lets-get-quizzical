@@ -24,7 +24,7 @@
       console.log(category);
 
       e.preventDefault();
-      $('.start-game-row').hide();
+      $('.start-game-row, .title, .high-scores').hide();
       $('.toggle-hide').show();
 
       var result = MyApp.createQuiz(category.toLowerCase());

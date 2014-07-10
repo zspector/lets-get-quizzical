@@ -16,7 +16,8 @@
       // Render timer and begin countdown
       window.MyApp.Instances.timer.render();
       window.MyApp.Instances.timer.countdown();
-      this.$el.append(window.MyApp.Instances.timer.el);
+      // this.$el.append(window.MyApp.Instances.timer.el);
+      $('#timer').append(window.MyApp.Instances.timer.el);
       // Render first question
       this.questionView.render();
       this.$el.append(this.questionView.el);
@@ -83,7 +84,8 @@
         $('#game').empty();
         MyApp.Instances.resultView.scopedScore(this.scoreView.score);
         MyApp.Instances.resultView.render(this.scoreView.score);
-        $('#result').show();
+        $('.timer-row').hide();
+        $('.title, .result-row').show();
         this.scoreView.remove();
         // $('#score').empty();
         this.stopListening();
