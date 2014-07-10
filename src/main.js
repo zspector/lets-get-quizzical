@@ -56,11 +56,11 @@
 
   $('.yes').click(function(){
     userEvents.trigger('saveScore');
-    $('.alert').hide();
+    $('.alert').slideUp('fast');
   })
 
   $('.no').click(function(){
-    $('.alert').hide();
+    $('.alert').slideUp('fast');
   })
 
   MyApp.createQuiz = function(category) {

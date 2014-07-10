@@ -117,7 +117,7 @@
           // MyApp.db.addUser(name, score, callback2);
         } else {
           console.log('got here');
-          $('.alert').show();
+          $('.alert').slideDown('fast');
           // MyApp.db.getUser(name, callback3);
           // userObject.score += score;
           // var updatedUser = MyApp.db.updateUser(userObject.user, userObject.score, callback4);
@@ -129,7 +129,6 @@
         MyApp.db.getUser(name, callback1)
       } else {
         alert("Name must be at least 3 characters");
-        $('.alert').show();
       }
     }
   })
