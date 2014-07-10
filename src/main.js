@@ -51,8 +51,16 @@
   $('.close-scores').click(function() {
     $('#high-scores').hide();
     $('.start-game-row, .high-scores').show();
+  });
+
+  $('.yes').click(function(){
+    userEvents.trigger('saveScore');
+    $('.alert').hide();
   })
 
+  $('.no').click(function(){
+    $('.alert').hide();
+  })
 
   MyApp.createQuiz = function(category) {
     var selectedQuestions = [];

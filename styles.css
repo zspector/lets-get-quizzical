@@ -20,6 +20,16 @@ body {
   font-family: Axis;
 }
 
+.alert {
+  display: none;
+  position: absolute;
+  left: 33%;
+  top: 14%;
+  z-index: 1000;
+  background-color: white;
+  border: 5px solid black;
+}
+
 .container-fluid {
   padding: 0;
 }
