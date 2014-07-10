@@ -52,7 +52,7 @@
   $('.close-scores').click(function() {
     $('#high-scores').hide();
     // $('.toggle-hide').hide();
-    $('.start-game-row').show();
+    $('.start-game-row, .high-scores').show();
   })
 
 

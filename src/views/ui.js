@@ -65,8 +65,7 @@
           }
         }
         console.log("i can show you the scores");
-        $('.start-game-row').hide();
-        $('.high-scores').hide();
+        $('.start-game-row, .high-scores').hide();
         $('#high-scores').show();
       }
       // get users and scores
