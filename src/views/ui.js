@@ -65,8 +65,9 @@
           }
         }
         console.log("i can show you the scores");
-        $('#high-scores').show();
         $('.start-game-row').hide();
+        $('.high-scores').hide();
+        $('#high-scores').show();
       }
       // get users and scores
       MyApp.db.getScores(callback);

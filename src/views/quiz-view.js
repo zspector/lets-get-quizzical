@@ -35,7 +35,7 @@
           console.log('Correct!');
           // $('body').css('background-color','green')
           target.toggleClass('btn-success');
-          this.scoreView.score += window.MyApp.Instances.timer.timer * 100;
+          this.scoreView.score += window.MyApp.Instances.timer.timer * 10;
           this.scoreView.render();
         } else {
           console.log('Incorrect!');

@@ -20,6 +20,10 @@ body {
   font-family: Axis;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 #high-scores {
   border: 10px solid #FFD700;
   color: #FFD700;
@@ -94,6 +98,20 @@ h1 {
 
 .result-button-div {
   margin-top: 2rem;
+}
+
+.result-content {
+  font-size: 7rem;
+}
+
+.username {
+  height: 5rem;
+  font-size: 2rem;
+}
+
+.result-button {
+  width: 20rem;
+  font-size: 2rem
 }
 
 /*#high-scores {
