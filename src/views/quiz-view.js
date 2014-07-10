@@ -52,11 +52,14 @@
       this.disableClick();
       var that = this
       setTimeout(function(){
-        target.toggleClass();
+        $('.question-container').hide('slide', {direction:'left'},1000);
+      }, 500);
+      setTimeout(function(){
+        target.toggleClass('btn-default');
         that.enableClick();
         that.nextQuestion();
         // window.MyApp.Instances.timer.timerReset();
-      }, 500);
+      }, 1500);
     },
 
     // timerReset: function() {
@@ -70,12 +73,17 @@
       // increase counter
       this.counter += 1;
       if (this.counter < 7) {
+        window.MyApp.Instances.timer.timerStartTime();
         console.log(this.counter);
         // add next question, which will trigger questionView.render()
         this.questionView.question = this.questions[this.counter]
         // this.scoreView.render();
         this.questionView.render();
-        window.MyApp.Instances.timer.timerReset();
+        $('.question-container').hide();
+        $('.question-container').show('slide', {direction:'right'},1000);
+        setTimeout(function(){
+          window.MyApp.Instances.timer.timerReset();
+        }, 1000);
       } else {
         // after 7 questions it resets
         this.counter = 0;
@@ -84,8 +92,10 @@
         $('#game').empty();
         MyApp.Instances.resultView.scopedScore(this.scoreView.score);
         MyApp.Instances.resultView.render(this.scoreView.score);
-        $('.timer-row').hide();
+        $('.toggle-hide, .timer-row').hide();
+        $('.result-container').hide();
         $('.title, .result-row').show();
+        $('.result-container').fadeIn('slow');
         this.scoreView.remove();
         // $('#score').empty();
         this.stopListening();

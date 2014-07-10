@@ -10,6 +10,11 @@
     countdown: function() {
       this.timer -= this.startTime/100.0;
       if (this.timer >= 0) {
+        if (this.timer <= 30) {
+          $('.timer-row').css('color', '#c9302c');
+        } else {
+          $('.timer-row').css('color', '#FFD700')
+        }
         this.render();
         var self = this;
         this.countdownTimeout = setTimeout(function(){
@@ -30,6 +35,11 @@
       this.timer = this.startTime;
       this.render();
       this.countdown();
+    },
+
+    timerStartTime: function () {
+      this.timer = this.startTime;
+      this.render();
     },
 
     destroyCountdown: function() {

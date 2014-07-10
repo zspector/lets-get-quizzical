@@ -45,6 +45,7 @@
 
       var callback2 = function() {
         MyApp.Instances.resultView.restart();
+        $('.start-game-row, .high-scores').hide();
         userEvents.trigger('showScores');
         // $('#high-scores').show();
       }
