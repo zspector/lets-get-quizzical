@@ -17,7 +17,7 @@ html {
 
 body {
   background-color: transparent;
-  font-family: Axis;
+  font-family: Axis, Tahoma, Arial, sans-serif;
 }
 
 .alert {
