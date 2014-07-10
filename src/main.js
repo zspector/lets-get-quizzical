@@ -46,6 +46,7 @@
 
   $('.high-scores').click(function(){
     userEvents.trigger('showScores');
+    $('.start-game-row, .high-scores').hide();
   });
 
   $('.close-scores').click(function() {
