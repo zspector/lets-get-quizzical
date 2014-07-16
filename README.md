@@ -1,5 +1,3 @@
-lets-get-quizzical
-==================
 # Let's Get Quizzical
 
 ### About
@@ -29,5 +27,4 @@ to events and what could not.
 
 The second major challenge was the timer.  I had used setTimeout before, however this time around, the state  
 of the timer affected which events were being triggered.  This resulted in unexpected behavior from both the timer  
-other views that were being rendered.  One way to combat that was to create as few views as needed as mentioned above.  
-Also using clearTimeout helped me pause and control the timer.
+other views that were being rendered.  One way to combat that was to create as few views as needed as mentioned above.  Also using clearTimeout helped me pause and control the timer.
