@@ -7,7 +7,6 @@
   MyApp.createCategoryButtons = function() {
     var categories = MyApp.db.getCategories();
     for (var i = 0; i < categories.length; i++) {
-      // console.log(categories[i]);
       var newCatView = new MyApp.Views.Category({
         category: categories[i],
       });
@@ -98,7 +97,6 @@
 
   function createQuestionModels(array) {
     for (var i = 0; i < array.length; i++) {
-      // console.log(array[i]);
       var newQuestionModel = {
         question: array[i].question,
         answer1: array[i].answers[0],

@@ -1,0 +1,9 @@
+{
+  "firebase": "lets-get-quizzical",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
