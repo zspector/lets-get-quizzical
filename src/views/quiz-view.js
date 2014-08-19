@@ -8,21 +8,16 @@
     initialize: function(options) {
       this.questions = options.questions;
       this.counter = 0;
-      // this.score = 0;
-      // Initialize view components of game
-      // this.timerView = new MyApp.Views.TimerView();
       this.questionView = new MyApp.Views.QuestionView({ question: this.questions[0] });
       this.scoreView = new MyApp.Views.ScoreView();
       // Render timer and begin countdown
       window.MyApp.Instances.timer.render();
       window.MyApp.Instances.timer.countdown();
-      // this.$el.append(window.MyApp.Instances.timer.el);
       $('#timer').append(window.MyApp.Instances.timer.el);
       // Render first question
       this.questionView.render();
       this.$el.append(this.questionView.el);
       // Render score view
-      // this.scoreView.render();
       this.$el.append(this.scoreView.el);
       this.listenTo(userEvents, 'next', this.evaluateAnswer);
     },
@@ -34,13 +29,11 @@
         var target = $(e.currentTarget)
         if (guess === this.questions[this.counter].correct) {
           console.log('Correct!');
-          // $('body').css('background-color','green')
           target.toggleClass('btn-success');
           this.scoreView.score += window.MyApp.Instances.timer.timer * 10;
           this.scoreView.render();
         } else {
           console.log('Incorrect!');
-          // $('body').css('background-color','red');
           target.toggleClass('btn-danger');
         }
       } else {
@@ -58,16 +51,8 @@
         target.toggleClass('btn-default');
         that.enableClick();
         that.nextQuestion();
-        // window.MyApp.Instances.timer.timerReset();
       }, 1500);
     },
-
-    // timerReset: function() {
-    //   // this.timerView.remove();
-    //   // var timerView = new MyApp.Views.TimerView();
-    //   this.timerView.timer = 11;
-    //   this.nextQuestion();
-    // },
 
     nextQuestion: function() {
       // increase counter
@@ -77,7 +62,6 @@
         console.log(this.counter);
         // add next question, which will trigger questionView.render()
         this.questionView.question = this.questions[this.counter]
-        // this.scoreView.render();
         this.questionView.render();
         $('.question-container').hide();
         $('.question-container').show('slide', {direction:'right'},1000);
@@ -88,7 +72,6 @@
         // after 7 questions it resets
         this.counter = 0;
         window.MyApp.Instances.timer.destroyCountdown();
-        // this.timerView.remove();
         $('#game').empty();
         MyApp.Instances.resultView.scopedScore(this.scoreView.score);
         MyApp.Instances.resultView.render(this.scoreView.score);
@@ -97,9 +80,7 @@
         $('.title, .result-row').show();
         $('.result-container').fadeIn('slow');
         this.scoreView.remove();
-        // $('#score').empty();
         this.stopListening();
-        // resultView.render();
         this.undelegateEvents();
         this.unbind();
         this.remove();
@@ -117,9 +98,5 @@
       this.delegateEvents(this.events);
     }
 
-    // render: function() {
-    //   this.$el = $('<div class="quiz-view"></div>');
-    //   $('#game').append(this.$el);
-    // }
   });
 })();

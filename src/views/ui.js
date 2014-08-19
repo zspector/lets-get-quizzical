@@ -57,11 +57,6 @@
           if (sortedScores[i]) {
             var rank = i + 1;
             MyApp.userScoreViews[i].render(rank, sortedScores[i].user, sortedScores[i].score);
-            // new MyApp.Views.UserScoreView({
-            //   rank: i+1,
-            //   user: sortedScores[i].user,
-            //   score: sortedScores[i].score
-            // });
           }
         }
         console.log("i can show you the scores");
